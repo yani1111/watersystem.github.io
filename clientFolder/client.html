@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard with Tables</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(45deg, #08f2f2, #273572, #e32678);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+      color: #b3acac;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px; 
+      overflow: hidden; 
+    }
+
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .dashboard-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #b6d2f3;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      font-size: 24px;
+    }
+
+    .search-profile {
+      display: flex;
+      align-items: center;
+    }
+
+    .search-profile input {
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    .profile-picture {
+      width: 40px;
+      height: 40px;
+      background-color: #ccc;
+      border-radius: 50%;
+      margin-left: 10px;
+    }
+
+    /* Dashboard Layout */
+    .dashboard {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    /* Card Styles */
+    .card {
+      background-color: #000000;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(19, 18, 18, 0.1);
+      flex: 1;
+      align-items: center;
+    }
+
+    .card table {
+      width: 100%;
+      border-collapse: collapse;
+      align-items: center;
+    }
+
+    .card table th, .card table td {
+      border: 1px solid #18171700;
+      padding: 10px;
+      text-align: center;
+      margin-top: 15px;
+      align-items: center;
+    }
+
+    .card table th {
+      background-color: #00000000;
+      align-items: center;
+    }
+
+    /* Specific Sections */
+    .welcome {
+      background-color: #002855;
+      color: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      align-items: center;
+    }
+
+    .current-balance {
+      background-color: #000000;
+      color: #ffffff;
+      text-align: center;
+      
+    }
+
+    .transaction-history td {
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .transaction-history .time {
+      text-align: center;
+      font-size: 12px;
+      color: #777;
+      margin-top: 5px;
+    }
+
+    /* Basic Account Info */
+    .account-info {
+      background-color: #002855;
+      color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard-container">
+    <header class="header">
+      <h1>Dashboard</h1>
+      <div class="search-profile">
+        <input type="text" placeholder="Search Here">
+        <div class="profile-picture"></div>
+      </div>
+    </header>
+
+    <div class="dashboard">
+      <!-- Current Balance -->
+      <div class="card current-balance">
+        <table>
+          <tr>
+            <th colspan="2">Current Balance</th>
+          </tr>
+          <tr>
+            <td>+ 12.764 m<sup>3</sup></td>
+            <td style="color: red;">- equivalent in Peso</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Welcome -->
+      <div class="card welcome">
+        <table>
+          <tr>
+            <th>WELCOME!</th>
+          </tr>
+          <tr>
+            <td>*Account Status Message: Up to date, low balance, over limit, etc.</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="dashboard">
+      <!-- Water Usage -->
+      <div class="card water-usage">
+        <table>
+          <tr>
+            <th>Water Usage</th>
+            <th>Date, Timestamp</th>
+            <th>Percentage</th>
+          </tr>
+          <tr>
+            <td>0.256 m<sup>3</sup></td>
+            <td>Timestamp</td>
+            <td>1.71%</td>
+          </tr>
+          <tr>
+            <td>0.75 m<sup>3</sup></td>
+            <td>Timestamp</td>
+            <td>5%</td>
+          </tr>
+          <tr>
+            <td>1.23 m<sup>3</sup></td>
+            <td>Timestamp</td>
+            <td>8.2%</td>
+          </tr>
+        </table>
+      </div>
+
+    <!-- Basic Account Info -->
+    <div class="card account-info">
+      <table>
+        <tr>
+          <th colspan="2">Basic Account Info</th>
+        </tr>
+        <tr>
+          <td>Account ID:</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>Name:</td>
+          <td>Yla Marino</td>
+        </tr>
+        <tr>
+          <td>Status:</td>
+          <td>Active/Inactive</td>
+        </tr>
+        <tr>
+          <td>Balance:</td>
+          <td>P10,000</td>
+        </tr>
+        <tr>
+          <td>Last Payment:</td>
+          <td>YYYY-MM-DD</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Transaction History -->
+  <div class="card transaction-history">
+    <table>
+      <tr>
+        <th>Amount</th>
+        <th>Type</th>
+        <th>Time</th>
+      </tr>
+      <tr>
+        <td>20 m<sup>3</sup></td>
+        <td style="color: red;">- P000</td>
+        <td>Yesterday, 2:00 PM</td>
+      </tr>
+      <tr>
+        <td>10 m<sup>3</sup></td>
+        <td style="color: red;">- P000</td>
+        <td>Timestamp</td>
+      </tr>
+      <tr>
+        <td>10 m<sup>3</sup></td>
+        <td style="color: green;">+ P000</td>
+        <td>Refund</td>
+      </tr>
+    </table>
+  </div>
+</div>
+</body>
+</html>
